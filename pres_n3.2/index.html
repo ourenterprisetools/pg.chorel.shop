@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+  <head>
+    <title>Memorion mmp</title>
+    <meta name="robots" content="index, follow" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <meta name="description" content="Memorion mmp" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="author" content="Memorion mmp" />
+
+    <!-- Base styles from your page (kept) -->
+    <style type="text/css" media="all">
+      :root {
+        --a-g-bg-color: rgba(194, 194, 195, 1);
+        --white: #ffffff;
+        --bg: #0b1220;
+        --card: #ffffff;
+        --muted: #6b7280;
+        --text: #0f172a;
+        --brand: #178270;
+        --brand-600: #0f6e5f;
+        --ring: #9fd5cb;
+        --shadow: 0 10px 30px rgba(2, 6, 23, 0.15);
+        --radius: 14px;
+        --radius-sm: 10px;
+        --radius-xs: 8px;
+        --container: 1100px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Roboto, system-ui, -apple-system, Segoe UI, Helvetica,
+          Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        margin: 0;
+        background: radial-gradient(
+            1200px 600px at 50% -10%,
+            rgba(23, 130, 112, 0.18),
+            transparent 60%
+          ),
+          var(--bg);
+      }
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
+
+      /* ====== Layout (UI/UX overrides) ====== */
+      .page {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100dvh;
+      }
+      .wrap {
+        width: min(100%, var(--container));
+        margin-inline: auto;
+        padding-inline: clamp(16px, 3vw, 28px);
+      }
+      .hero {
+        padding: clamp(24px, 4vw, 40px) 0;
+      }
+      .card {
+        width: min(880px, 100%);
+        margin-inline: auto;
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: clamp(20px, 3.2vw, 28px);
+        border: 1px solid rgba(2, 6, 23, 0.06);
+      }
+
+      /* Typography */
+      .title {
+        margin: 0 0 14px;
+        font-family: Montserrat, Poppins, Roboto, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        font-size: clamp(26px, 3.2vw, 36px);
+        color: var(--text);
+        text-align: center;
+      }
+      .lede {
+        /* margin: 0 auto 18px; */
+        color: #0b1220;
+        /* font-size: clamp(14px, 2vw, 18px); */
+        /* line-height: 1.6; */
+        width: min(760px, 100%);
+      }
+      .media {
+        margin: 12px 0 10px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid rgba(2, 6, 23, 0.06);
+      }
+      .media img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Buttons */
+      .actions {
+        display: grid;
+        gap: 12px;
+        margin: 12px 0 0;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: min(680px, 100%);
+        margin-inline: auto;
+        padding: 14px 18px;
+        font-weight: 800;
+        font-size: clamp(16px, 2.4vw, 20px);
+        text-decoration: none;
+        color: #fff;
+        background: var(--brand);
+        border-radius: var(--radius-xs);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 6px 18px rgba(23, 130, 112, 0.25);
+        transition: transform 0.08s ease, box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        background: var(--brand-600);
+        box-shadow: 0 10px 24px rgba(23, 130, 112, 0.28);
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+      .btn:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 4px var(--ring), 0 6px 18px rgba(23, 130, 112, 0.25);
+      }
+
+      /* Footer */
+      .footer {
+        background: #111827;
+        color: #c7d2fe;
+        padding: 20px 0 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        margin-top: 28px;
+      }
+      .foot-grid {
+        display: grid;
+        gap: 10px;
+        justify-items: center;
+        text-align: center;
+      }
+      .foot-links {
+        display: inline-flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .foot-links a {
+        color: #e5e7eb;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .foot-links a:hover {
+        text-decoration: underline;
+      }
+      .legal {
+        margin-top: 8px;
+        color: #93a1b5;
+        font-size: 12px;
+        line-height: 1.6;
+        max-width: 900px;
+      }
+
+      /* Accessibility & polish */
+      ::selection {
+        background: #c0efe7;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* ====== Minimal overrides for existing Atomicat blocks (do not break) ====== */
+      .a-b-cont {
+        overflow: hidden;
+      }
+      .atomicat-container-8145a85.a-b-o-cont {
+        margin: 0;
+        background: transparent;
+      }
+      .atomicat-container-716a67f.a-b-o-cont {
+        width: 100%;
+      }
+      /* Center the main “card” and fix mobile width bug */
+      .atomicat-container-45421ba > .a-o-cont {
+        padding: 0;
+      }
+      .atomicat-container-45421ba.a-b-o-cont {
+        background: transparent !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+      }
+      @media (max-width: 480px) {
+        .atomicat-container-45421ba.a-b-o-cont {
+          width: 100% !important;
+        } /* remove 1600px bug */
+      }
+      /* Give their inner wrap our card look */
+      .a-s-d-d9zm12 .a-cont-f-w.a-o-cont > .a-i-cont > .a-c-cont-392091a,
+      .a-s-d-d9zm12 .a-cont-f-w.a-o-cont > .a-i-cont {
+        width: 100%;
+      }
+      .a-s-d-d9zm12 .a-cont-f-w.a-o-cont {
+        width: 100%;
+      }
+      /* Title size harmonized */
+      .atomicat-heading-title-392091a h1 {
+        font-size: clamp(26px, 3.2vw, 36px) !important;
+        line-height: 1.15 !important;
+        text-align: center !important;
+        margin: 0 0 10px !important;
+      }
+      /* Copy width & spacing */
+      .atomicat-text-6773e3f p {
+        width: min(760px, 100%);
+        margin: 0 auto;
+        color: #111827;
+        line-height: 1.65;
+        font-size: clamp(15px, 2.1vw, 18px);
+      }
+      /* Image fit */
+      .atomicat-image-31d363e img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(2, 6, 23, 0.06);
+      }
+      /* Primary buttons unify to .btn look */
+      .atomicat-button-1897bf8 .atomicat-button,
+      .atomicat-button-0baea59 .atomicat-button {
+        all: unset;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: min(680px, 100%);
+        margin-inline: auto;
+        padding: 14px 18px;
+        font-weight: 800;
+        font-size: clamp(16px, 2.4vw, 20px);
+        color: #fff;
+        background: var(--brand);
+        border-radius: var(--radius-xs);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 6px 18px rgba(23, 130, 112, 0.25);
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .atomicat-button-1897bf8 .atomicat-button:hover,
+      .atomicat-button-0baea59 .atomicat-button:hover {
+        background: var(--brand-600);
+      }
+      .a-c-cont-1897bf8 > .a-e-cont,
+      .a-c-cont-0baea59 > .a-e-cont {
+        margin-top: 14px !important;
+      }
+
+      /* Footer block reskin */
+      .atomicat-container-543b9f1.a-b-o-cont {
+        background: transparent !important;
+      }
+      .atomicat-container-6e4b2e6.a-b-o-cont {
+        width: 100% !important;
+      }
+      .atomicat-text-adffe50 p {
+        color: inherit !important;
+      }
+    </style>
+
+    <!-- Fonts preload kept (optional) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      href="https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrJJfecg.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2"
+      crossorigin
+    />
+  </head>
+
+  <body
+    data-version="2.7"
+    data-page-type="page"
+    data-page="_rTSOZAlfQAHdRKUQ3nFk"
+    class="page atomicat-disable-selection"
+    data-variant="ise1ur34fsh"
+  >
+    <!-- ====== HERO / CARD ====== -->
+    <main class="">
+      <section class="card" role="region" aria-labelledby="main-title">
+        <h1 id="main-title" class="title">
+          A 15-second daily routine shocking memory experts
+        </h1>
+
+        <figure class="media">
+          <img
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            src="images/YslSKW5465014.png#754616"
+            srcset="
+              images/YslSKW5465014_1.png#787974 1200w,
+              images/YslSKW5465014_2.png#526939  300w,
+              images/YslSKW5465014_3.png#550632  768w,
+              images/YslSKW5465014_4.png#138785 1024w
+            "
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            alt=""
+          />
+        </figure>
+
+        <div class="actions" aria-label="Primary actions">
+          <a class="btn" href="https://https://chorel.shop/exf51il4p3/"
+            >Watch Now ></a
+          >
+        </div>
+
+        <p
+          class="lede"
+          style="
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            max-width: 700px;
+            margin: 20px auto;
+            text-align: justify;
+          "
+        >
+          At 72, my memory remains as sharp as it was at 20, thanks to a simple
+          honey trick I discovered with Dr. Sanjay Gupta. <br /><br />
+
+          Renowned experts call this honey and cinnamon method the ‘15-second
+          trick’, which works by combining the antioxidant properties of honey
+          with the anti-inflammatory properties of cinnamon, as supported by
+          research in the Journal of Medicinal Food. <br /><br />
+
+          I discovered this method after watching an interview with Dr. Sanjay
+          Gupta, a world-renowned brain health specialist with over 20 years of
+          research experience. Dr. Gupta stated: ‘Memory loss is not related to
+          age or genetics, but rather to hidden toxins affecting the brain’, as
+          demonstrated in studies published in the journal Neurology, which have
+          been peer-reviewed and verified. <br /><br />
+
+          According to a study published in the Journal of Alzheimer’s Disease,
+          82% of people over 60 suffer from memory problems, which can progress
+          to dementia if left untreated, as cited in the Alzheimer’s Association
+          report. <br /><br />
+
+          Dr. Gupta explained that there is a hidden toxin, known as
+          ‘beta-amyloid’, which silently poisons the brain every day, leading to
+          memory loss, as described in the National Institute on Aging research.
+          <br /><br />
+
+          Initially, I was skeptical, but within 3 days, I noticed a significant
+          improvement: I remembered where I left my keys and phone numbers, and
+          even my sister noticed the change, which was corroborated by my family
+          members. <br /><br />
+
+          <strong style="color: #b22222"
+            >CLICK BELOW TO WATCH THE FREE INTERVIEW</strong
+          >
+        </p>
+
+        <div class="actions" aria-label="Primary actions">
+          <a class="btn" href="https://https://chorel.shop/exf51il4p3/"
+            >Watch Now ></a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+      <div class="wrap foot-grid">
+        <nav class="foot-links" aria-label="Legal links">
+          <a href="https://www.healthsugar.fun/PrivacyPolicy">Privacy Policy</a>
+          <a href="https://www.healthsugar.fun/TermsConditions">Terms of Use</a>
+        </nav>
+        <p class="legal">
+          Copyright 2025 | All Rights Reserved<br /><br />
+          This site is not a part of the Youtube website or Youtube Inc.
+          Additionally, This site is NOT endorsed by Youtube in any way. YOUTUBE
+          is a trademark of YOUTUBE, Inc.<br />
+          It's important to consult your doctor before making any dietary or
+          lifestyle changes. Individual results may vary and result are not
+          guaranteed.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
